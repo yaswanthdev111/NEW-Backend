@@ -7,24 +7,7 @@ const cookiesParser = require('cookie-parser')
 const { app, server } = require('./socket/index')
 
 const app = express()
-const allowedOrigins = [
-    process.env.FRONTEND_URL, 
-    "http://localhost:3000", 
-    "https://livechat-frontend-ashen.vercel.app"
-];
-
-app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
-}));
+app.use(cors())
 
 console.log("Allowed Origins:", process.env.FRONTEND_URL);
 
