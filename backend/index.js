@@ -10,8 +10,11 @@ const { app, server } = require('./socket/index')
 app.use(cors({
     origin: [process.env.FRONTEND_URL, "http://localhost:3000","https://livechat-frontend-ashen.vercel.app"], 
     credentials: true,
+    optionsSuccessStatus: 200 ,
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
+    allowedHeaders: ["Content-Type", "Authorization"],
+  preflightContinue: false,
+
 }))
 app.use(express.json())
 app.use(cookiesParser())
