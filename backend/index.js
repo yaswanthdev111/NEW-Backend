@@ -6,7 +6,7 @@ const router = require('./routes/index')
 const cookiesParser = require('cookie-parser')
 const { app, server } = require('./socket/index')
 
-app.use(cors({ origin: [ 'http://localhost:3000','https://livechat-frontend-ashen.vercel.app'] })); 
+app.use(cors({ origin: [ 'http://localhost:3000','https://livechat-frontend-ashen.vercel.app'] ,credentials:true})); 
 
 app.use(express.json());
 app.use(cookiesParser());

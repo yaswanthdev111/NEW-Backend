@@ -11,12 +11,16 @@ const app = express()
 
 /***socket connection */
 const server = http.createServer(app)
-const io = new Server(server,{
-    cors : {
-        origin : process.env.FRONTEND_URL,
-        credentials : true
+const io = new Server(server, {
+    cors: {
+        origin: [
+            "http://localhost:3000",
+            "https://livechat-frontend-ashen.vercel.app"
+        ],
+        credentials: true
     }
-})
+});
+
 
 /***
  * socket running at http://localhost:8080/
