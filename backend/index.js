@@ -8,7 +8,7 @@ const { app, server } = require('./socket/index')
 
 // const app = express()
 app.use(cors({
-    origin: [process.env.FRONTEND_URL, "http://localhost:3000"], 
+    origin: [process.env.FRONTEND_URL, "http://localhost:3000","https://livechat-frontend-ashen.vercel.app"], 
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
