@@ -7,7 +7,14 @@ const cookiesParser = require('cookie-parser')
 const { app, server } = require('./socket/index')
 
 const app = express()
-app.use(cors())
+app.use(cors(
+    {
+        "origin": "*",
+        "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+        "preflightContinue": false,
+        "optionsSuccessStatus": 204
+      }
+))
 
 console.log("Allowed Origins:", process.env.FRONTEND_URL);
 
